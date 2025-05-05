@@ -3,4 +3,3 @@
        PROCEDURE DIVISION.
        DISPLAY "Hello, COBOL! Hello Aurelius!".
        STOP RUN.
-S
