@@ -20,21 +20,21 @@
        IF ERGEBNIS = "1.0"
        DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL,
        " gewonnen! :)"
-       COMMPUTE PERFORMANCE = GEGNERZAHL + 400
+       COMPUTE PERFORMANCE = GEGNERZAHL + 400
        DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
 
        IF ERGEBNIS = "0.5"
        DISPLAY "Ein Unentschieden gegen einen ", GEGNERZAHL,
        " ist auch ganz okay. Immerhin hast du ja nicht verloren ;)"
-       COMMPUTE PERFORMANCE = GEGNERZAHL
+       COMPUTE PERFORMANCE = GEGNERZAHL
        DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
        
        IF ERGEBNIS = "0"
        DISPLAY "Schade, dass du gegen einen ", GEGNERZAHL,
        " verloren hast. Das nächste mal wird es aber besser ;)"
-       COMMPUTE PERFORMANCE = GEGNERZAHL - 400
+       COMPUTE PERFORMANCE = GEGNERZAHL - 400
        DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
 
