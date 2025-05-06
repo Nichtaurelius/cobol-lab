@@ -6,38 +6,36 @@
        01  BENUTZERZAHL     PIC 9(4).
        01  GEGNERZAHL       PIC 9(4).
        01  ERGEBNIS         PIC A(1).
-       01  PERFORMANCE      PIC S9(5) COMP.
-
+       01  PERFORMANCE      PIC 9(4).
+       
        PROCEDURE DIVISION.
-           DISPLAY "Bitte gib deine DWZ ein:".
-           ACCEPT BENUTZERZAHL.
-           
-           DISPLAY "Bitte gib die DWZ deines Gegners ein:".
-           ACCEPT GEGNERZAHL.
+       DISPLAY "Bitte gib deine DWZ ein:"
+       ACCEPT BENUTZERZAHL
+       DISPLAY "Bitte gib die DWZ deines Gegners ein:"
+       ACCEPT GEGNERZAHL
+       DISPLAY "Bitte gib das Ergebnis der Partie ein ",
+       "(w = Sieg, d = Remis, l = Niederlage):"
+       ACCEPT ERGEBNIS
+       
+       IF ERGEBNIS = "w"
+       DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL,
+       " gewonnen! :)"
+       COMPUTE PERFORMANCE = GEGNERZAHL + 400
+       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
+       END-IF
 
-           DISPLAY "Bitte gib das Ergebnis der Partie ein ".
-           DISPLAY "(w = Sieg, d = Remis, l = Niederlage):".
-           ACCEPT ERGEBNIS.
+       IF ERGEBNIS = "d"
+       DISPLAY "Ein Unentschieden gegen einen ", GEGNERZAHL,
+       " ist auch ganz okay. Immerhin hast du ja nicht verloren ;)"
+       COMPUTE PERFORMANCE = GEGNERZAHL
+       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
+       END-IF
+       
+       IF ERGEBNIS = "l"
+       DISPLAY "Schade, dass du gegen einen ", GEGNERZAHL,
+       " verloren hast. Das nächste mal wird es aber besser ;)"
+       COMPUTE PERFORMANCE = GEGNERZAHL - 400
+       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
+       END-IF
 
-           IF ERGEBNIS = "w"
-               DISPLAY "Gut gemacht. Du hast gegen ", GEGNERZAHL, 
-               " gewonnen! :)"
-               COMPUTE PERFORMANCE = GEGNERZAHL + 400
-               DISPLAY "Deine Performance liegt bei ", PERFORMANCE
-           END-IF
-
-           IF ERGEBNIS = "d"
-               DISPLAY "Ein Unentschieden gegen ", GEGNERZAHL,
-                " ist auch ganz okay."
-               COMPUTE PERFORMANCE = GEGNERZAHL
-               DISPLAY "Deine Performance liegt bei ", PERFORMANCE
-           END-IF
-
-           IF ERGEBNIS = "l"
-               DISPLAY "Schade, dass du gegen ", GEGNERZAHL,
-                " verloren hast."
-               COMPUTE PERFORMANCE = GEGNERZAHL - 400
-               DISPLAY "Deine Performance liegt bei ", PERFORMANCE
-           END-IF
-
-           STOP RUN.
+       STOP RUN.
