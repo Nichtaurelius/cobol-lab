@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  NAME     PIC A(20) VALUE "Aurelius".
+       01  MESSAGE  PIC A(50).
+
+       PROCEDURE DIVISION.
+           MOVE "Hello, COBOL! Hello " TO MESSAGE
+           STRING MESSAGE DELIMITED BY SIZE
+                  NAME DELIMITED BY SPACE
+                  INTO MESSAGE
+           DISPLAY MESSAGE
+           STOP RUN.
