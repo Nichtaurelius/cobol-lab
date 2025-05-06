@@ -15,5 +15,6 @@
        DISPLAY "Bitte gib das Ergebnis der Partie ein (l/d/w):"
        ACCEPT ERGEBNIS
        IF ERGEBNIS = "w"
-       DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL, " gewonnen! :)"
+           DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL, " gewonnen! :)"
+       END-IF
        STOP RUN.
