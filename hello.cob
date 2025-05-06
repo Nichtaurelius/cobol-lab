@@ -1,8 +1,10 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. HELLO.
+
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01  NAME     PIC A(20) VALUE "Aurelius".
+       
        PROCEDURE DIVISION.
        DISPLAY NAME.
        STOP RUN.
