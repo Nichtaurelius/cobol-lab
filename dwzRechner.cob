@@ -3,8 +3,17 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01  A     PIC 9(4) VALUE 1747.
+       01  BENUTZERZAHL     PIC 9(4).
+       01  GEGNERZAHL       PIC 9(4).
+       01  ERGEBNIS         PIC A(1).
        
        PROCEDURE DIVISION.
-       DISPLAY A.
+       DISPLAY "Bitte gib deine DWZ ein:"
+       ACCEPT BENUTZERZAHL
+       DISPLAY "Bitte gib die DWZ deinses Gegners ein:"
+       ACCEPT GEGNERZAHL
+       DISPLAY "Bitte gib das Ergebnis der Partie ein (l/d/w):"
+       ACCEPT ERGEBNIS
+       IF ERGEBNIS = "w"
+            DISPLAY "Gut gemacht. Du hast gegen nen " GEGNERZAHL " gewonnen! :)"
        STOP RUN.
