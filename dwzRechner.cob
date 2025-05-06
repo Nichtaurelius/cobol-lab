@@ -6,7 +6,7 @@
        01  BENUTZERZAHL     PIC 9(4).
        01  GEGNERZAHL       PIC 9(4).
        01  ERGEBNIS         PIC A(1).
-       01  PERFORMANCE      PIC 9(5).
+       01  PERFORMANCE      PIC 9(4).
        
        PROCEDURE DIVISION.
        DISPLAY "Bitte gib deine DWZ ein:"
