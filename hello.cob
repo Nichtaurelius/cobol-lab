@@ -1,5 +1,7 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. HELLO.
+       WORKING-STORAGE SECTION.
+       01  NAME     PIC A(20) VALUE "Aurelius".
        PROCEDURE DIVISION.
-       DISPLAY "Hello, COBOL! Hello Aurelius! Das ist ein Git Test :)".
+       DISPLAY NAME.
        STOP RUN.
