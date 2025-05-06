@@ -1,4 +1,3 @@
 #!/bin/bash
 mkdir -p build
-cobc -x src/dwz.cob -o build/dwz
-echo "✅ Build erfolgreich: build/dwz"
+cobc -x src/dwz.cob -o build/dwz && echo "✅ Build erfolgreich"
