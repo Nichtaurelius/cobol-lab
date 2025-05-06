@@ -3,7 +3,7 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01  A     PIC A(20) VALUE 9.
+       01  A     PIC 9(4) VALUE 1747.
        
        PROCEDURE DIVISION.
        DISPLAY A.
