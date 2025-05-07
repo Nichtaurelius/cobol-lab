@@ -9,18 +9,18 @@
        01  PERFORMANCE      PIC 9(4).
        
        PROCEDURE DIVISION.
-       PERFORM UNTIL BENUTZERZAHL < 400 OR BENUTZERZAHL > 3000
+       PERFORM UNTIL BENUTZERZAHL > 400 OR BENUTZERZAHL < 3000
        DISPLAY "Bitte gib deine DWZ ein:"
        ACCEPT BENUTZERZAHL
-       IF BENUTZERZAHL < 400 OR BENUTZERZAHL > 3000
+       IF BENUTZERZAHL > 400 OR BENUTZERZAHL < 3000
        DISPLAY "Bitte gib eine gültige DWZ ein (400 - 3000):"
        END-IF
        END-PERFORM
 
-       PERFORM UNTIL GEGNERZAHL < 400 OR GEGNERZAHL > 3000
+       PERFORM UNTIL GEGNERZAHL > 400 OR GEGNERZAHL < 3000
        DISPLAY "Bitte gib die DWZ deines Gegners ein:"
        ACCEPT GEGNERZAHL
-       IF GEGNERZAHL < 400 OR GEGNERZAHL > 3000
+       IF GEGNERZAHL > 400 OR GEGNERZAHL < 3000
        DISPLAY "Bitte gib eine gültige DWZ ein (400 - 3000):"
        END-IF
        END-PERFORM
@@ -31,8 +31,7 @@
        ACCEPT ERGEBNIS
        IF ERGEBNIS NOT = "w" AND ERGEBNIS NOT = "d" AND
        ERGEBNIS NOT = "l"
-       DISPLAY "Bitte gib ein gültiges Ergebnis ein (w, d oder l)",
-       "(w = Sieg, d = Remis, l = Niederlage):"
+       DISPLAY "ungültige Eingabe!"
        END-IF
        END-PERFORM
        
