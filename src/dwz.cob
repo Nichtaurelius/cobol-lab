@@ -10,14 +10,14 @@
        
        PROCEDURE DIVISION.
        PERFORM UNTIL BENUTZERZAHL < 400 OR BENUTZERZAHL > 3000
-       DISPLAY "Bitte gib deine DWZ ein: "
+       DISPLAY "Bitte gib deine DWZ ein:"
        ACCEPT BENUTZERZAHL
        IF BENUTZERZAHL < 400 OR BENUTZERZAHL > 3000
        DISPLAY "Bitte gib eine gültige DWZ ein (400 - 3000):"
        END-IF
        END-PERFORM
 
-       PERFORM UNTIL GEGENERZAHL < 400 OR GEGNERZAHL > 3000
+       PERFORM UNTIL GEGNERZAHL < 400 OR GEGNERZAHL > 3000
        DISPLAY "Bitte gib die DWZ deines Gegners ein:"
        ACCEPT GEGNERZAHL
        IF GEGNERZAHL < 400 OR GEGNERZAHL > 3000
