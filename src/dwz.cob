@@ -37,21 +37,21 @@
        END-IF
        END-PERFORM
        
-       IF ERGEBNIS = "w"
+       IF ERGEBNIS = "w" OR ERGEBNIS = "W"
        DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL,
        " gewonnen! :)"
        COMPUTE PERFORMANCE = GEGNERZAHL + 400
        DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
 
-       IF ERGEBNIS = "d"
+       IF ERGEBNIS = "d" OR ERGEBNIS = "D"
        DISPLAY "Ein Unentschieden gegen einen ", GEGNERZAHL,
        " ist auch ganz okay. Immerhin hast du ja nicht verloren ;)"
        COMPUTE PERFORMANCE = GEGNERZAHL
        DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
        
-       IF ERGEBNIS = "l"
+       IF ERGEBNIS = "l" OR ERGEBNIS = "L"
        DISPLAY "Schade, dass du gegen einen ", GEGNERZAHL,
        " verloren hast. Das nächste mal wird es aber besser ;)"
        COMPUTE PERFORMANCE = GEGNERZAHL - 400
