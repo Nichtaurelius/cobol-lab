@@ -6,7 +6,12 @@
        01  BENUTZERZAHL     PIC 9(4).
        01  GEGNERZAHL       PIC 9(4).
        01  ERGEBNIS         PIC A(1).
-       01  PERFORMANCE      PIC 9(4).
+       01  SCORE            USAGE COMP-2.
+       01  ERWARTUNG        USAGE COMP-2.
+       01  K-FAKTOR         USAGE COMP-2.
+       01  NEUEDWZ-FLOAT    USAGE COMP-2.
+       01  NEUE-DWZ         PIC 9(4).
+       01  A-KONST          PIC 9 VALUE 7.
        
        PROCEDURE DIVISION.
        PERFORM UNTIL BENUTZERZAHL > 400 AND BENUTZERZAHL < 3000
@@ -38,24 +43,31 @@
        END-PERFORM
        
        IF ERGEBNIS = "w" OR ERGEBNIS = "W"
-       DISPLAY "Gut gemacht. Du hast gegen nen ", GEGNERZAHL,
+       MOVE 1.0 TO SCORE
+       DISPLAY "Gut gemacht. Du hast gegen einen ", GEGNERZAHL,
        " gewonnen! :)"
-       COMPUTE PERFORMANCE = GEGNERZAHL + 400
-       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
 
        IF ERGEBNIS = "d" OR ERGEBNIS = "D"
+       MOVE 0.5 TO SCORE
        DISPLAY "Ein Unentschieden gegen einen ", GEGNERZAHL,
        " ist auch ganz okay. Immerhin hast du ja nicht verloren ;)"
-       COMPUTE PERFORMANCE = GEGNERZAHL
-       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
-       
+
        IF ERGEBNIS = "l" OR ERGEBNIS = "L"
+       MOVE 0 TO SCORE
        DISPLAY "Schade, dass du gegen einen ", GEGNERZAHL,
        " verloren hast. Das nächste mal wird es aber besser ;)"
-       COMPUTE PERFORMANCE = GEGNERZAHL - 400
-       DISPLAY "Deine Performance liegt bei ", PERFORMANCE
        END-IF
+
+       COMPUTE K-FAKTOR = 800.0 / (1 + A-KONST)
+       COMPUTE ERWARTUNG = 1 /
+       (1 + FUNCTION POWER(10.0,
+       (GEGNERZAHL - BENUTZERZAHL) / 400.0))
+       COMPUTE NEUEDWZ-FLOAT = BENUTZERZAHL +
+       K-FAKTOR * (SCORE - ERWARTUNG)
+       COMPUTE NEUEDWZ-FLOAT = FUNCTION INTEGER(NEUEDWZ-FLOAT + 0.5)
+       MOVE NEUEDWZ-FLOAT TO NEUE-DWZ
+       DISPLAY "Deine neue DWZ beträgt ", NEUE-DWZ
 
        STOP RUN.
